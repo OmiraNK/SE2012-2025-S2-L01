@@ -21,11 +21,12 @@ public class Marks{
             System.out.println("1. Get average for a subject");
             System.out.println("2. Get average for a student");
             System.out.println("3. Get total marks for a student");
-            System.out.println("4. Exit");
-            System.out.print("Enter your choice(1-4): ");
+            System.out.println("4. Display grades");
+            System.out.println("5. Exit");
+            System.out.print("Enter your choice(1-5): ");
             int choice = scanner.nextInt();
 
-            if(choice == 4){
+            if(choice == 5){
                 break;
             }
 
@@ -77,9 +78,36 @@ public class Marks{
                         System.out.println("Invalid student ID.");
                     }
                     break;
+                case 4:
+                    System.out.println("\nStudent Grades:");
+                    System.out.printf("%-10s%-15s%-15s%-15s%n", "Student", "Mathematics", "Chemistry", "Physics");
+                    for(int i = 0; i < noOfStudents; i++){
+                        System.out.printf("%-10s", "Student " + (i + 1));
+                        for(int j = 0; j < 3; j++){
+                            String grade;
+                            if(marks[i][j] >= 90){
+                                grade = "Grade A";
+                            }
+                            else if(marks[i][j] >= 80){
+                                grade = "Grade B";
+                            }
+                            else if(marks[i][j] >= 70){
+                                grade = "Grade C";
+                            }
+                            else if(marks[i][j] >= 60){
+                                grade = "Grade D";
+                            }
+                            else{
+                                grade = "Fail";
+                            }
+                            System.out.printf("%-15s", grade);
+                        }
+                        System.out.println();
+                    }
+                    break;
 
                 default:
-                    System.out.println("Invalid choice! Please enter 1-4.");
+                    System.out.println("Invalid choice! Please enter 1-5.");
             }
         }
         scanner.close();
